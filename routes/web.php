@@ -27,3 +27,11 @@ Route::get('/admindashboard','AdminController@admin_dashboard')->name('admin.das
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+//Site Route
+Route::get('sites', 'SiteController@index')->name('site.index');
+Route::get('sites/create', 'SiteController@create')->name('site.create');
+Route::post('sites', 'SiteController@store')->name('site.store');
+Route::get('sites/{id}/edit', 'SiteController@edit')->name('site.edit');
+Route::post('sites/{id}', 'SiteController@update')->name('site.update');
+Route::get('admin/sites/{id}', 'SiteController@delete')->name('site.delete');

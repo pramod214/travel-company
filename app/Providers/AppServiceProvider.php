@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Site;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 
@@ -25,5 +27,11 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
+
+        View::composer('*', function ($view) {
+            $site = Site::first();
+
+            $view->with('_SITE', $site);
+        });
     }
 }

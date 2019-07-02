@@ -9,10 +9,10 @@
                 <aside class="col-md-4 widget widget_text">
                     <a href="index-2.html" class="footer-logo"><img src="{{asset('public/frontend/images/logo.png')}}" alt=""></a>
                     <ul class="touristpoint-footer-social">
-                        <li><a href="https://en-gb.facebook.com/login/" class="fa fa-facebook" data-toggle="tooltip" title="facebook"></a></li>
-                        <li><a href="https://twitter.com/login" class="fa fa-twitter" data-toggle="tooltip" title="twitter"></a></li>
-                        <li><a href="https://www.linkedin.com/uas/login" class="fa fa-linkedin" data-toggle="tooltip" title="linkedin"></a></li>
-                        <li><a href="https://www.youtube.com/" class="fa fa-youtube" data-toggle="tooltip" title="youtube"></a></li>
+                        <li><a href="{{$_SITE->facebook}}" class="fa fa-facebook" data-toggle="tooltip" title="facebook"></a></li>
+                        <li><a href="{{$_SITE->twitter}}" class="fa fa-twitter" data-toggle="tooltip" title="twitter"></a></li>
+                        <li><a href="{{$_SITE->insta}}" class="fa fa-instagram" data-toggle="tooltip" title="instagram"></a></li>
+                        <li><a href="{{$_SITE->youtube}}" class="fa fa-youtube" data-toggle="tooltip" title="youtube"></a></li>
                     </ul>
                 </aside>
                 <!--// Widget widget text \\-->
@@ -43,15 +43,15 @@
                     <ul>
                         <li>
                             <i class="fa fa-envelope-o"></i>
-                            <p><a href="mailto:yourdomain@name.com">1234@example.com - info@tourist.com</a></p>
+                            <p><a href="mailto:yourdomain@name.com">{{$_SITE->email}}</a></p>
                         </li>
                         <li>
                             <i class="fa fa-home"></i>
-                            <p>123 Lorem ipsum dolor, London, UK</p>
+                            <p>{{$_SITE->location}}</p>
                         </li>
                         <li>
                             <i class="fa fa-phone"></i>
-                            <p>(+00) 123 45 678 - 123 45 678</p>
+                            <p>{{$_SITE->phone}}</p>
                         </li>
                     </ul>
                 </aside>

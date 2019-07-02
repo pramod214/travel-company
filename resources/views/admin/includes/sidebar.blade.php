@@ -22,8 +22,8 @@
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="pages/app/app-chat.html"><i class="iconsmind-Arrow-Through"></i>Create Site Setting</a></li>
-                    <li><a href="pages/app/app-contact.html"><i class="iconsmind-Arrow-Through"></i>View Site Setting</a></li>
+                    <li><a href="{{route('site.create')}}"><i class="iconsmind-Arrow-Through"></i>Create Site Setting</a></li>
+                    <li><a href="{{route('site.index')}}"><i class="iconsmind-Arrow-Through"></i>View Site Setting</a></li>
                 </ul>
             </li>
 
