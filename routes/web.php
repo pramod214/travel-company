@@ -16,5 +16,14 @@
 Route::get('/','FrontEndController@index')->name('front.index');
 Route::get('/blogs','FrontEndController@blogs')->name('front.blogs');
 Route::get('/tour','FrontEndController@tour')->name('front.tour');
-Route::get('/destination','FrontEndController@destination')->name('front.destination');
+Route::get('/6trfdxdestination','FrontEndController@destination')->name('front.destination');
 Route::get('/contact','FrontEndController@contact')->name('front.contact');
+
+//BackEnd
+Auth::routes();
+
+Route::get('/admindashboard','AdminController@admin_dashboard')->name('admin.dashboard');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
