@@ -39,147 +39,34 @@
                                         <span class="gshape-two"></span>
                                         <span class="gshape-three"></span>
                                     </a></li>
-                                <li><a data-filter=".europe" href="javascript:void(0)">EUROPE
+                                @foreach($categories as $category)
+                                <li><a data-filter=".category-{{$category->id}}" href="javascript:void(0)">{{$category->name}}
                                         <span class="gshape-one"></span>
                                         <span class="gshape-two"></span>
                                         <span class="gshape-three"></span>
-                                    </a></li>
-                                <li><a data-filter=".africa" href="javascript:void(0)">AFRICA
-                                        <span class="gshape-one"></span>
-                                        <span class="gshape-two"></span>
-                                        <span class="gshape-three"></span>
-                                    </a></li>
-                                <li><a data-filter=".asia" href="javascript:void(0)">ASIA
-                                        <span class="gshape-one"></span>
-                                        <span class="gshape-two"></span>
-                                        <span class="gshape-three"></span>
-                                    </a></li>
-                                <li><a data-filter=".australia" href="javascript:void(0)">AUSTRALIA
-                                        <span class="gshape-one"></span>
-                                        <span class="gshape-two"></span>
-                                        <span class="gshape-three"></span>
-                                    </a></li>
+                                    </a>
+                                </li>
+                                @endforeach
                             </ul>
                         </div>
                         <div class="touristpoint-tour touristpoint-tour-grid touristpoint-tour-grid-filter">
                             <ul class="row">
-                                <li class="col-md-4 element-item africa australia">
-                                    <figure><a href="tour-detail.html"><img src="{{asset('public/frontend/extra-images/tour-grid-img1.jpg')}}" alt=""><span><i class="fa fa-briefcase"></i>Book Now</span></a>
+
+                                @foreach($tour as $t)
+                                <li class="col-md-4 element-item category-{{$category->id}}">
+                                    <figure><a href="tour-detail.html"><img src="{{asset('public/adminpanel/uploads/package/'.$t->image)}}" alt=""><span><i class="fa fa-briefcase"></i>Book Now</span></a>
                                         <span>Featured</span>
                                     </figure>
                                     <div class="touristpoint-tour-grid-text">
-                                        <h5><a href="tour-detail.html">The Santa Barbara Wildfire</a></h5>
+                                        <h5><a href="tour-detail.html">{{$t->title}}</a></h5>
                                         <div class="star-rating"><span class="star-rating-box" style="width:100%"></span></div>
                                         <small>( 03 Review )</small>
-                                        <span>$350</span>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscin elit. Quisque venenatis, ipsum nec dapibus rutr, dui justo rutrum magna,</p>
+                                        <span>Rs.{{$t->price}}</span>
+                                        <p>{!! $t->shortDescription !!}</p>
                                         <a href="tour-detail.html" class="touristpoint-readmore-btn">Read More</a>
                                     </div>
                                 </li>
-                                <li class="col-md-4 element-item europe asia">
-                                    <figure><a href="tour-detail.html"><img src="{{asset('public/frontend/extra-images/tour-grid-img2.jpg')}}" alt=""><span><i class="fa fa-briefcase"></i>Book Now</span></a>
-                                        <span>Featured</span>
-                                    </figure>
-                                    <div class="touristpoint-tour-grid-text">
-                                        <h5><a href="tour-detail.html">Thailand Special Places</a></h5>
-                                        <div class="star-rating"><span class="star-rating-box" style="width:100%"></span></div>
-                                        <small>( 03 Review )</small>
-                                        <span>$350</span>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscin elit. Quisque venenatis, ipsum nec dapibus rutr, dui justo rutrum magna,</p>
-                                        <a href="tour-detail.html" class="touristpoint-readmore-btn">Read More</a>
-                                    </div>
-                                </li>
-                                <li class="col-md-4 element-item africa australia">
-                                    <figure><a href="tour-detail.html"><img src="{{asset('public/frontend/extra-images/tour-grid-img3.jpg')}}" alt=""><span><i class="fa fa-briefcase"></i>Book Now</span></a>
-                                        <span class="one">Featured</span>
-                                    </figure>
-                                    <div class="touristpoint-tour-grid-text">
-                                        <h5><a href="tour-detail.html">A Quote Post for Vestibulu</a></h5>
-                                        <div class="star-rating"><span class="star-rating-box" style="width:100%"></span></div>
-                                        <small>( 03 Review )</small>
-                                        <span>$350</span>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscin elit. Quisque venenatis, ipsum nec dapibus rutr, dui justo rutrum magna,</p>
-                                        <a href="tour-detail.html" class="touristpoint-readmore-btn">Read More</a>
-                                    </div>
-                                </li>
-                                <li class="col-md-4 element-item europe asia">
-                                    <figure><a href="tour-detail.html"><img src="{{asset('public/frontend/extra-images/tour-grid-img4.jpg')}}" alt=""><span><i class="fa fa-briefcase"></i>Book Now</span></a>
-                                        <span class="two">Featured</span>
-                                    </figure>
-                                    <div class="touristpoint-tour-grid-text">
-                                        <h5><a href="tour-detail.html">Proin at Hendrerit Tortor</a></h5>
-                                        <div class="star-rating"><span class="star-rating-box" style="width:100%"></span></div>
-                                        <small>( 03 Review )</small>
-                                        <span>$350</span>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscin elit. Quisque venenatis, ipsum nec dapibus rutr, dui justo rutrum magna,</p>
-                                        <a href="tour-detail.html" class="touristpoint-readmore-btn">Read More</a>
-                                    </div>
-                                </li>
-                                <li class="col-md-4 element-item africa australia">
-                                    <figure><a href="tour-detail.html"><img src="{{asset('public/frontend/extra-images/tour-grid-img5.jpg')}}" alt=""><span><i class="fa fa-briefcase"></i>Book Now</span></a>
-                                        <span class="three">Featured</span>
-                                    </figure>
-                                    <div class="touristpoint-tour-grid-text">
-                                        <h5><a href="tour-detail.html">Vivamus Interdum Leo Purus</a></h5>
-                                        <div class="star-rating"><span class="star-rating-box" style="width:100%"></span></div>
-                                        <small>( 03 Review )</small>
-                                        <span>$350</span>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscin elit. Quisque venenatis, ipsum nec dapibus rutr, dui justo rutrum magna,</p>
-                                        <a href="tour-detail.html" class="touristpoint-readmore-btn">Read More</a>
-                                    </div>
-                                </li>
-                                <li class="col-md-4 element-item europe asia">
-                                    <figure><a href="tour-detail.html"><img src="{{asset('public/frontend/extra-images/tour-grid-img6.jpg')}}" alt=""><span><i class="fa fa-briefcase"></i>Book Now</span></a>
-                                        <span class="three">Featured</span>
-                                    </figure>
-                                    <div class="touristpoint-tour-grid-text">
-                                        <h5><a href="tour-detail.html">Aliquam Accumsan Tellus Sed</a></h5>
-                                        <div class="star-rating"><span class="star-rating-box" style="width:100%"></span></div>
-                                        <small>( 03 Review )</small>
-                                        <span>$350</span>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscin elit. Quisque venenatis, ipsum nec dapibus rutr, dui justo rutrum magna,</p>
-                                        <a href="tour-detail.html" class="touristpoint-readmore-btn">Read More</a>
-                                    </div>
-                                </li>
-                                <li class="col-md-4 element-item africa australia">
-                                    <figure><a href="tour-detail.html"><img src="{{asset('public/frontend/extra-images/tour-grid-img7.jpg')}}" alt=""><span><i class="fa fa-briefcase"></i>Book Now</span></a>
-                                        <span class="four">Featured</span>
-                                    </figure>
-                                    <div class="touristpoint-tour-grid-text">
-                                        <h5><a href="tour-detail.html">The Santa Barbara Wildfire</a></h5>
-                                        <div class="star-rating"><span class="star-rating-box" style="width:100%"></span></div>
-                                        <small>( 03 Review )</small>
-                                        <span>$350</span>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscin elit. Quisque venenatis, ipsum nec dapibus rutr, dui justo rutrum magna,</p>
-                                        <a href="tour-detail.html" class="touristpoint-readmore-btn">Read More</a>
-                                    </div>
-                                </li>
-                                <li class="col-md-4 element-item europe asia">
-                                    <figure><a href="tour-detail.html"><img src="{{asset('public/frontend/extra-images/tour-grid-img8.jpg')}}" alt=""><span><i class="fa fa-briefcase"></i>Book Now</span></a>
-                                        <span class="five">Featured</span>
-                                    </figure>
-                                    <div class="touristpoint-tour-grid-text">
-                                        <h5><a href="tour-detail.html">Nam Sollicitudin Lectus Quis</a></h5>
-                                        <div class="star-rating"><span class="star-rating-box" style="width:100%"></span></div>
-                                        <small>( 03 Review )</small>
-                                        <span>$350</span>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscin elit. Quisque venenatis, ipsum nec dapibus rutr, dui justo rutrum magna,</p>
-                                        <a href="tour-detail.html" class="touristpoint-readmore-btn">Read More</a>
-                                    </div>
-                                </li>
-                                <li class="col-md-4 element-item africa australia">
-                                    <figure><a href="tour-detail.html"><img src="{{asset('public/frontend/extra-images/tour-grid-img9.jpg')}}" alt=""><span><i class="fa fa-briefcase"></i>Book Now</span></a>
-                                        <span class="three">Featured</span>
-                                    </figure>
-                                    <div class="touristpoint-tour-grid-text">
-                                        <h5><a href="tour-detail.html">The Santa Barbara Wildfire</a></h5>
-                                        <div class="star-rating"><span class="star-rating-box" style="width:100%"></span></div>
-                                        <small>( 03 Review )</small>
-                                        <span>$350</span>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscin elit. Quisque venenatis, ipsum nec dapibus rutr, dui justo rutrum magna,</p>
-                                        <a href="tour-detail.html" class="touristpoint-readmore-btn">Read More</a>
-                                    </div>
-                                </li>
+                                    @endforeach
                             </ul>
                         </div>
                         <!--// Pagination \\-->

@@ -50,7 +50,7 @@
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="{{route('package.create')}}"><i class="iconsmind-Arrow-Through"></i>Create Package</a></li>
-                    <li><a href=""><i class="iconsmind-Arrow-Through"></i>View Package</a></li>
+                    <li><a href="{{route('package.index')}}"><i class="iconsmind-Arrow-Through"></i>View Package</a></li>
                 </ul>
             </li>
 

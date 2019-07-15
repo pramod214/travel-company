@@ -28,7 +28,6 @@ class CreatePackagesTable extends Migration
             $table->text('itineraries')->nullable();
             $table->string('discount')->nullable();
             $table->string('image')->nullable()->default(null);
-
             $table->string('showinhome')->default(0);
             $table->foreign('category_id')->references('id')->on('package_categories');
             $table->timestamps();

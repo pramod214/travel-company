@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Package;
+use App\PackageCategory;
 use Illuminate\Http\Request;
 
 class FrontEndController extends Controller
@@ -15,7 +17,9 @@ class FrontEndController extends Controller
     }
 
     public function tour(){
-        return view('frontend.tour');
+        $categories = PackageCategory::all();
+        $tour = Package::latest()->get();
+        return view('frontend.tour',compact('categories','tour'));
     }
 
     public function destination(){
