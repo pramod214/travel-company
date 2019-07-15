@@ -35,3 +35,20 @@ Route::post('sites', 'SiteController@store')->name('site.store');
 Route::get('sites/{id}/edit', 'SiteController@edit')->name('site.edit');
 Route::post('sites/{id}', 'SiteController@update')->name('site.update');
 Route::get('admin/sites/{id}', 'SiteController@delete')->name('site.delete');
+
+//PackageCategory
+Route::get('/category','PackageCategoryController@index')->name('category.index');
+Route::get('/category/create','PackageCategoryController@create')->name('category.create');
+Route::post('/category/store','PackageCategoryController@store')->name('category.store');
+Route::get('/admin/category-delete/{id}','PackageCategoryController@delete')->name('category.delete');
+
+//Package
+Route::get('/package','PackageController@index')->name('package.index');
+Route::get('package/create','PackageController@create')->name('package.create');
+Route::post('package/store','PackageController@store')->name('package.store');
+Route::get('package/edit/{id}','PackageController@edit')->name('package.edit');
+Route::post('package/update/{id}','PackageController@update')->name('package.update');
+Route::get('/admin/package-delete/{id}','PackageController@delete')->name('package.delete');
+
+
+

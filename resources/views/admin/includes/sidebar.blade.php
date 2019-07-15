@@ -27,6 +27,33 @@
                 </ul>
             </li>
 
+            <li class="treeview">
+                <a href="#">
+                    <i class="iconsmind-Air-Balloon"></i>
+                    <span>Package Category</span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{route('category.create')}}"><i class="iconsmind-Arrow-Through"></i>Create Package Category</a></li>
+                    <li><a href="{{route('category.index')}}"><i class="iconsmind-Arrow-Through"></i>View Package Category</a></li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="iconsmind-Air-Balloon"></i>
+                    <span>Package</span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{route('package.create')}}"><i class="iconsmind-Arrow-Through"></i>Create Package</a></li>
+                    <li><a href=""><i class="iconsmind-Arrow-Through"></i>View Package</a></li>
+                </ul>
+            </li>
+
         </ul>
     </section>
 </aside>
