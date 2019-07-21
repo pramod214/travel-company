@@ -17,10 +17,24 @@
                             <li class="breadcrumb-item active">Package tables</li>
                         </ol>
                     </section>
-                    @if(session()->has('message'))
-                        <div class="alert alert-primary">
+                    @if(session()->has('success_message'))
+                        <div class="alert alert-success">
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span class="text-success">x</span></button>
-                            {{ session()->get('message') }}
+                            {{ session()->get('success_message') }}
+                        </div>
+                    @endif
+
+                    @if(session()->has('update_message'))
+                        <div class="alert alert-info">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span class="text-info">x</span></button>
+                            {{ session()->get('update_message') }}
+                        </div>
+                    @endif
+
+                    @if(session()->has('error_message'))
+                        <div class="alert alert-danger">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span class="text-danger">x</span></button>
+                            {{ session()->get('error_message') }}
                         </div>
                 @endif
                 <!-- Main content -->
@@ -43,11 +57,14 @@
                                                     <tr>
                                                         <th>S.N</th>
                                                         <th>Title</th>
+                                                        <th>Destination</th>
                                                         <th>Short Description</th>
                                                         <th>Content</th>
                                                         <th>Duration</th>
                                                         <th>Departure Date</th>
+                                                        <th>Departure Time</th>
                                                         <th>Return Date</th>
+                                                        <th>Return Time</th>
                                                         <th>No of People</th>
                                                         <th>Price</th>
                                                         <th>Discount</th>
@@ -64,16 +81,19 @@
                                                         <tr>
                                                             <td>{{$loop -> index+1}}</td>
                                                             <td>{{$package->title}}</td>
+                                                            <td>{{$package->destination}}</td>
                                                             <td>{!! substr($package->shortDescription,0,10) !!}</td>
                                                             <td>{!! substr($package->content,0,10) !!}</td>
                                                             <td>{{$package->duration}}</td>
                                                             <td>{{$package->departureDate}}</td>
+                                                            <td>{!! substr($package->departureTime,0,10)!!}</td>
                                                             <td>{{$package->returnDate}}</td>
+                                                            <td>{{$package->returnTime}}</td>
                                                             <td>{{$package->noofpeople}}</td>
                                                             <td>{{$package->price}}</td>
                                                             <td>{{$package->discount}}</td>
                                                             <td>{{$package->location}}</td>
-                                                            <td>{{$package->category->name}}</td>
+                                                            <td>{{$package->category_id}}</td>
                                                             <td>{!! substr($package->itineraries,0,10) !!}</td>
                                                             <td>@if($package->showinhome==0) False @else True @endif</td>
                                                             <td>
@@ -85,6 +105,9 @@
                                                                 </a>
                                                                 <a rel="{{$package->id}}" rel1="package-delete" href="javascript:" class="btn btn-danger deleteRecord">
                                                                     <i class="fa fa-trash"></i>
+                                                                </a>
+                                                                <a href="{{route('image.add',$package->id)}}" class="btn btn-success">
+                                                                    <i class="fa fa-image"></i>
                                                                 </a>
 
                                                             </td>
@@ -143,6 +166,8 @@
             });
         });
     </script>
+
+    <script src="{{asset('public/adminpanel/assets/vendor_components/datatable/datatables.min.js')}}"></script>
 @endsection
 
 @endsection

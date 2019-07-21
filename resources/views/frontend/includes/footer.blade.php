@@ -7,7 +7,7 @@
             <div class="row">
                 <!--// Widget widget text \\-->
                 <aside class="col-md-4 widget widget_text">
-                    <a href="index-2.html" class="footer-logo"><img src="{{asset('public/frontend/images/logo.png')}}" alt=""></a>
+                    <a href="index-2.html" class="footer-logo"><img src="" alt="{{$_SLIDER->title}}"></a>
                     <ul class="touristpoint-footer-social">
                         <li><a href="{{$_SITE->facebook}}" class="fa fa-facebook" data-toggle="tooltip" title="facebook"></a></li>
                         <li><a href="{{$_SITE->twitter}}" class="fa fa-twitter" data-toggle="tooltip" title="twitter"></a></li>

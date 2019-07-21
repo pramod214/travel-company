@@ -12,9 +12,9 @@
     <div class="touristpoint-banner">
 
         <div class="touristpoint-banner-layer">
-            <img src="{{asset('public/frontend/extra-images/banner-1.jpg')}}" alt="">
+            <img src="{{asset('public/adminpanel/uploads/slider/'.$_SLIDER->image)}}" alt="">
             <span class="blue-transparent"></span>
-            <div class="touristpoint-banner-caption"> <div class="container"> <h1>World’s hottest destinations for vegans</h1> </div> </div>
+            <div class="touristpoint-banner-caption"> <div class="container"> <h1>{{$_SLIDER->title}}</h1> </div> </div>
         </div>
 
     </div>
@@ -118,70 +118,48 @@
                     <div class="col-md-12">
                         <div class="touristpoint-fancy-title">
                             <h2>Most Popular Destinations</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non est massa. Praesent rutrum aliquet.</p>
+                            <p>Check our popular destination so that you can make a mind to visit the places.</p>
                         </div>
                         <div class="touristpoint-destination touristpoint-destination-modern">
                             <ul class="row">
-                                <li class="col-md-8">
-                                    <figure><a href="destination-detail.html"><img src="{{asset('public/frontend/extra-images/destination-img-1.jpg')}}" alt=""><span></span></a>
-                                        <figcaption>
-                                            <span>Europe Tour</span>
-                                            <h5><a href="destination-detail.html">Paris City - Eiffel Tower</a></h5>
-                                            <ul class="touristpoint-destination-comment">
-                                                <li><a href="404.html" class="fa fa-heart-o" data-toggle="tooltip" title="Like"></a></li>
-                                                <li><a href="404.html" class="fa fa-comment-o" data-toggle="tooltip" title="comment"></a></li>
-                                            </ul>
-                                        </figcaption>
-                                    </figure>
-                                </li>
-                                <li class="col-md-4">
-                                    <figure><a href="destination-detail.html"><img src="{{asset('public/frontend/extra-images/destination-img-2.jpg')}}" alt=""><span></span></a>
-                                        <figcaption>
-                                            <span>Europe Tour</span>
-                                            <h5><a href="destination-detail.html">Paris City</a></h5>
-                                            <ul class="touristpoint-destination-comment">
-                                                <li><a href="404.html" class="fa fa-heart-o" data-toggle="tooltip" title="Like"></a></li>
-                                                <li><a href="404.html" class="fa fa-comment-o" data-toggle="tooltip" title="comment"></a></li>
-                                            </ul>
-                                        </figcaption>
-                                    </figure>
-                                </li>
-                                <li class="col-md-4">
-                                    <figure><a href="destination-detail.html"><img src="{{asset('public/frontend/extra-images/destination-img-3.jpg')}}" alt=""><span></span></a>
-                                        <figcaption>
-                                            <span>Europe Tour</span>
-                                            <h5><a href="destination-detail.html">Dubai City</a></h5>
-                                            <ul class="touristpoint-destination-comment">
-                                                <li><a href="404.html" class="fa fa-heart-o" data-toggle="tooltip" title="Like"></a></li>
-                                                <li><a href="404.html" class="fa fa-comment-o" data-toggle="tooltip" title="comment"></a></li>
-                                            </ul>
-                                        </figcaption>
-                                    </figure>
-                                </li>
-                                <li class="col-md-4">
-                                    <figure><a href="destination-detail.html"><img src="{{asset('public/frontend/extra-images/destination-img-4.jpg')}}" alt=""><span></span></a>
-                                        <figcaption>
-                                            <span>Europe Tour</span>
-                                            <h5><a href="destination-detail.html">Tokyo Tower</a></h5>
-                                            <ul class="touristpoint-destination-comment">
-                                                <li><a href="404.html" class="fa fa-heart-o" data-toggle="tooltip" title="Like"></a></li>
-                                                <li><a href="404.html" class="fa fa-comment-o" data-toggle="tooltip" title="comment"></a></li>
-                                            </ul>
-                                        </figcaption>
-                                    </figure>
-                                </li>
-                                <li class="col-md-4">
-                                    <figure><a href="destination-detail.html"><img src="{{asset('public/frontend/extra-images/destination-img-5.jpg')}}" alt=""><span></span></a>
-                                        <figcaption>
-                                            <span>Europe Tour</span>
-                                            <h5><a href="destination-detail.html">New York</a></h5>
-                                            <ul class="touristpoint-destination-comment">
-                                                <li><a href="404.html" class="fa fa-heart-o" data-toggle="tooltip" title="Like"></a></li>
-                                                <li><a href="404.html" class="fa fa-comment-o" data-toggle="tooltip" title="comment"></a></li>
-                                            </ul>
-                                        </figcaption>
-                                    </figure>
-                                </li>
+                                <?php
+                                $count=1;
+                                foreach ($destination as $d){
+                                    if($count==1){?>
+                                    <li class="col-md-8">
+                                        <figure><a href="{{route('front.tour_details',$d->id)}}"><img src="{{asset('public/frontend/extra-images/destination-img-1.jpg')}}" alt=""><span></span></a>
+                                            <figcaption>
+                                                <span>{{$d->title}}</span>
+                                                <h5><a href="{{route('front.tour_details',$d->id)}}">{{$d->destination}}</a></h5>
+                                                <ul class="touristpoint-destination-comment">
+                                                    <li><a href="{{route('front.404')}}" class="fa fa-heart-o" data-toggle="tooltip" title="Like"></a></li>
+                                                    <li><a href="{{route('front.404')}}" class="fa fa-comment-o" data-toggle="tooltip" title="comment"></a></li>
+                                                </ul>
+                                            </figcaption>
+                                        </figure>
+                                    </li>
+                                    <?php
+                                    }
+
+                                    else{?>
+                                    <li class="col-md-4">
+                                        <figure><a href="{{route('front.tour_details',$d->id)}}"><img src="{{asset('public/frontend/extra-images/destination-img-2.jpg')}}" alt=""><span></span></a>
+                                            <figcaption>
+                                                <span>{{$d->title}}</span>
+                                                <h5><a href="{{route('front.tour_details',$d->id)}}">{{$d->destination}}</a></h5>
+                                                <ul class="touristpoint-destination-comment">
+                                                    <li><a href="{{route('front.404')}}" class="fa fa-heart-o" data-toggle="tooltip" title="Like"></a></li>
+                                                    <li><a href="{{route('front.404')}}" class="fa fa-comment-o" data-toggle="tooltip" title="comment"></a></li>
+                                                </ul>
+                                            </figcaption>
+                                        </figure>
+                                    </li>
+                                    <?php
+                                    }
+                                    $count++;
+                                }
+                                ?>
+
                             </ul>
                         </div>
                     </div>
@@ -199,100 +177,31 @@
                     <div class="col-md-12">
                         <div class="touristpoint-fancy-title">
                             <h2>Top Tour Packages</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non est massa. Praesent rutrum aliquet.</p>
+                            <p>Check our top tour packages.</p>
                         </div>
                         <div class="touristpoint-tour touristpoint-tour-modern">
                             <ul class="row">
+                                @foreach($package as $p)
+                                    @if($p->showinhome == 1)
                                 <li class="col-md-4">
-                                    <figure><a href="tour-detail.html"><img src="{{asset('public/frontend/extra-images/tour-modern-img1.jpg')}}" alt=""><i class="fa fa-briefcase"></i></a>
-                                        <span>$75</span>
+
+                                    <figure><a href="{{route('front.tour_details',$p->id)}}"><img src="{{asset('public/adminpanel/uploads/package/'.$p->image)}}" alt=""><i class="fa fa-briefcase"></i></a>
+                                        <span>Rs. {{$p->price}}</span>
                                         <div class="star-rating"><span class="star-rating-box" style="width:100%"></span></div>
-                                        <div class="touristpoint-tour-modern-text">
-                                            <span>Hot Deals</span>
-                                            <h5><a href="tour-detail.html">ST Lucia Coral Adventure</a></h5>
+
+                                        <div class="touristpoint-tour-modern-text" style="padding-top:20px">
+                                            <span>{{$p->category->name}}</span>
+                                            <h5><a href="{{route('front.tour_details',$p->id)}}">{{$p->title}}</a></h5>
                                             <ul class="touristpoint-tour-option">
-                                                <li><a href="404.html"><i class="fa fa-calendar-o"></i>No Of Days : 04</a></li>
-                                                <li><a href="404.html"><i class="fa fa-user"></i>People :  05</a></li>
+                                                <li><a href="{{route('front.404')}}"><i class="fa fa-calendar-o"></i>No Of Days : {{$p->duration}}</a></li>
+                                                <li><a href="{{route('front.404')}}"><i class="fa fa-user"></i>People :  {{$p->noofpeople}}</a></li>
                                             </ul>
-                                            <p>Lorem ipsum dolor sit amet, consectetur ad ipiscing elit. Sed non est massa. Praesent rutrum aliquet.</p>
+                                            <p>{{$p->shortDescription}}</p>
                                         </div>
                                     </figure>
                                 </li>
-                                <li class="col-md-4">
-                                    <figure><a href="tour-detail.html"><img src="{{asset('public/frontend/extra-images/tour-modern-img2.jpg')}}" alt=""><i class="fa fa-briefcase"></i></a>
-                                        <span class="color-one">$60</span>
-                                        <div class="star-rating"><span class="star-rating-box" style="width:100%"></span></div>
-                                        <div class="touristpoint-tour-modern-text">
-                                            <span>Hot Deals</span>
-                                            <h5><a href="tour-detail.html">The Santa Barbara Wildfire</a></h5>
-                                            <ul class="touristpoint-tour-option">
-                                                <li><a href="404.html"><i class="fa fa-calendar-o"></i>No Of Days : 04</a></li>
-                                                <li><a href="404.html"><i class="fa fa-user"></i>People :  05</a></li>
-                                            </ul>
-                                            <p>Lorem ipsum dolor sit amet, consectetur ad ipiscing elit. Sed non est massa. Praesent rutrum aliquet.</p>
-                                        </div>
-                                    </figure>
-                                </li>
-                                <li class="col-md-4">
-                                    <figure><a href="tour-detail.html"><img src="{{asset('public/frontend/extra-images/tour-modern-img3.jpg')}}" alt=""><i class="fa fa-briefcase"></i></a>
-                                        <span class="color-two">$65</span>
-                                        <div class="star-rating"><span class="star-rating-box" style="width:100%"></span></div>
-                                        <div class="touristpoint-tour-modern-text">
-                                            <span>Hot Deals</span>
-                                            <h5><a href="tour-detail.html">The Travel Mystery Revealed</a></h5>
-                                            <ul class="touristpoint-tour-option">
-                                                <li><a href="404.html"><i class="fa fa-calendar-o"></i>No Of Days : 04</a></li>
-                                                <li><a href="404.html"><i class="fa fa-user"></i>People :  05</a></li>
-                                            </ul>
-                                            <p>Lorem ipsum dolor sit amet, consectetur ad ipiscing elit. Sed non est massa. Praesent rutrum aliquet.</p>
-                                        </div>
-                                    </figure>
-                                </li>
-                                <li class="col-md-4">
-                                    <figure><a href="tour-detail.html"><img src="{{asset('public/frontend/extra-images/tour-modern-img4.jpg')}}" alt=""><i class="fa fa-briefcase"></i></a>
-                                        <span class="color-three">$70</span>
-                                        <div class="star-rating"><span class="star-rating-box" style="width:100%"></span></div>
-                                        <div class="touristpoint-tour-modern-text">
-                                            <span>Hot Deals</span>
-                                            <h5><a href="tour-detail.html">A Perfect Day in the Nature</a></h5>
-                                            <ul class="touristpoint-tour-option">
-                                                <li><a href="404.html"><i class="fa fa-calendar-o"></i>No Of Days : 04</a></li>
-                                                <li><a href="404.html"><i class="fa fa-user"></i>People :  05</a></li>
-                                            </ul>
-                                            <p>Lorem ipsum dolor sit amet, consectetur ad ipiscing elit. Sed non est massa. Praesent rutrum aliquet.</p>
-                                        </div>
-                                    </figure>
-                                </li>
-                                <li class="col-md-4">
-                                    <figure><a href="tour-detail.html"><img src="{{asset('public/frontend/extra-images/tour-modern-img5.jpg')}}" alt=""><i class="fa fa-briefcase"></i></a>
-                                        <span class="color-four">$80</span>
-                                        <div class="star-rating"><span class="star-rating-box" style="width:100%"></span></div>
-                                        <div class="touristpoint-tour-modern-text">
-                                            <span>Hot Deals</span>
-                                            <h5><a href="tour-detail.html">Love Advice From Experts</a></h5>
-                                            <ul class="touristpoint-tour-option">
-                                                <li><a href="404.html"><i class="fa fa-calendar-o"></i>No Of Days : 04</a></li>
-                                                <li><a href="404.html"><i class="fa fa-user"></i>People :  05</a></li>
-                                            </ul>
-                                            <p>Lorem ipsum dolor sit amet, consectetur ad ipiscing elit. Sed non est massa. Praesent rutrum aliquet.</p>
-                                        </div>
-                                    </figure>
-                                </li>
-                                <li class="col-md-4">
-                                    <figure><a href="tour-detail.html"><img src="{{asset('public/frontend/extra-images/tour-modern-img6.jpg')}}" alt=""><i class="fa fa-briefcase"></i></a>
-                                        <span>$75</span>
-                                        <div class="star-rating"><span class="star-rating-box" style="width:100%"></span></div>
-                                        <div class="touristpoint-tour-modern-text">
-                                            <span>Hot Deals</span>
-                                            <h5><a href="tour-detail.html">Easy to Make Travel Faster</a></h5>
-                                            <ul class="touristpoint-tour-option">
-                                                <li><a href="404.html"><i class="fa fa-calendar-o"></i>No Of Days : 04</a></li>
-                                                <li><a href="404.html"><i class="fa fa-user"></i>People :  05</a></li>
-                                            </ul>
-                                            <p>Lorem ipsum dolor sit amet, consectetur ad ipiscing elit. Sed non est massa. Praesent rutrum aliquet.</p>
-                                        </div>
-                                    </figure>
-                                </li>
+                                    @endif
+                                    @endforeach
                             </ul>
                         </div>
                     </div>
@@ -313,7 +222,7 @@
                             <h2>Awesome Experienc for Tourism & Travel</h2>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non est massa. Praesent rutrum aliquet arcu odio, non porttitor quam tristique nec. Vestibulum ante ipsum primis in faucibus cubaailiaCurae; Phasellus gravida sed arcu mattis sodales.</p>
                             <div class="clearfix"></div>
-                            <a href="404.html" class="touristpoint-simple-btn">Book Now</a>
+                            <a href="{{route('front.404')}}" class="touristpoint-simple-btn">Book Now</a>
                         </div>
                     </div>
 
@@ -330,43 +239,24 @@
                     <div class="col-md-12">
                         <div class="touristpoint-fancy-title">
                             <h2>Latest From Our Blog</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non est massa. Praesent rutrum aliquet.</p>
+                            <p>Check our latest blog.</p>
                         </div>
                         <div class="touristpoint-blog touristpoint-blog-modern">
                             <ul class="row">
+                                @foreach($blog as $b)
+                                    @if($b->showinhome==1)
                                 <li class="col-md-4">
-                                    <figure><a href="blog-detail.html"><img src="{{asset('public/frontend/extra-images/blog-modern-img1.jpg')}}" alt=""><i class="fa fa-link"></i></a></figure>
+                                    <figure><a href="{{route('front.blog_details',$b->id)}}"><img src="{{asset('public/adminpanel/uploads/blog/'.$b->image)}}" alt=""><i class="fa fa-link"></i></a></figure>
                                     <div class="touristpoint-blog-modern-text">
-                                        <time datetime="2008-02-14 20:00">21 AUG</time>
-                                        <h5><a href="blog-detail.html">Thailand Special Places</a></h5>
+                                        <time datetime="2008-02-14 20:00">{{substr($b->date,9,10)}} {{substr($b->date,5,-3)}}</time>
+                                        <h5><a href="{{route('front.blog_details',$b->id)}}">{{$b->title}}</a></h5>
                                         <ul class="touristpoint-blog-option">
-                                            <li><a href="404.html"><i class="fa fa-comment-o"></i> 29 Comments</a></li>
-                                            <li><a href="404.html"><i class="fa fa-user"></i> John Layfield</a></li>
+                                            <li><a href="{{route('front.404')}}"><i class="fa fa-user"></i>{{$b->user->name}}</a></li>
                                         </ul>
                                     </div>
                                 </li>
-                                <li class="col-md-4">
-                                    <figure><a href="blog-detail.html"><img src="{{asset('public/frontend/extra-images/blog-modern-img2.jpg')}}" alt=""><i class="fa fa-link"></i></a></figure>
-                                    <div class="touristpoint-blog-modern-text">
-                                        <time datetime="2008-02-14 20:00">21 AUG</time>
-                                        <h5><a href="blog-detail.html">The Santa Barbara Wildfire</a></h5>
-                                        <ul class="touristpoint-blog-option">
-                                            <li><a href="404.html"><i class="fa fa-comment-o"></i> 29 Comments</a></li>
-                                            <li><a href="404.html"><i class="fa fa-user"></i> John Layfield</a></li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li class="col-md-4">
-                                    <figure><a href="blog-detail.html"><img src="{{asset('public/frontend/extra-images/blog-modern-img3.jpg')}}" alt=""><i class="fa fa-link"></i></a></figure>
-                                    <div class="touristpoint-blog-modern-text">
-                                        <time datetime="2008-02-14 20:00">21 AUG</time>
-                                        <h5><a href="blog-detail.html">A Quote Post for Vestibulu</a></h5>
-                                        <ul class="touristpoint-blog-option">
-                                            <li><a href="404.html"><i class="fa fa-comment-o"></i> 29 Comments</a></li>
-                                            <li><a href="404.html"><i class="fa fa-user"></i> John Layfield</a></li>
-                                        </ul>
-                                    </div>
-                                </li>
+                                    @endif
+                                    @endforeach
                             </ul>
                         </div>
                     </div>

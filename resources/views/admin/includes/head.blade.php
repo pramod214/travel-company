@@ -6,9 +6,9 @@
     <meta name="author" content="">
     <link rel="icon" href="{{asset('public/adminpanel/images/favicon.ico')}}">
 
-    <title>Travel Company - Dashboard</title>
-
-    <!-- Bootstrap 4.0-->
+    <title>All Flags-Dashboard</title>
+{{--<link href="{{asset('admin/css/sweetalert.css')}}" rel="stylesheet" type="text/css">--}}
+<!-- Bootstrap 4.0-->
     <link rel="stylesheet" href="{{asset('public/adminpanel/assets/vendor_components/bootstrap/dist/css/bootstrap.css')}}">
 
     <!-- Bootstrap extend-->
@@ -19,5 +19,5 @@
 
     <!-- NeoX Admin skins -->
     <link rel="stylesheet" href="{{asset('public/adminpanel/css/skins/_all-skins.css')}}">
-
+    <link rel="stylesheet" href="{{asset('css/toastr.css')}}">
 </head>

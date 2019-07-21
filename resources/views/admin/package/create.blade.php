@@ -69,6 +69,12 @@
                                             </div>
 
                                             <div class="form-group">
+                                                <h5>Destination<span class="text-danger">*</span></h5>
+                                                <div class="controls">
+                                                    <input type="text" name="destination" id="destination" class="form-control" value="{{old('destination')}}"> </div>
+                                            </div>
+
+                                            <div class="form-group">
                                                 <h5>Short Description<span class="text-danger">*</span></h5>
                                                 <div class="controls">
                                                     <textarea name="shortDescription" class="form-control">{{old('shortDescription')}} </textarea>
@@ -102,6 +108,20 @@
                                                     <input type="text" name="returnDate" id="returnDate" value="{{old('returnDate')}}" class="form-control">
                                                     </div>
                                                 </div>
+
+                                            <div class="form-group">
+                                                <h5>Departure Time<span class="text-danger">*</span></h5>
+                                                <div class="controls">
+                                                    <input type="text" name="departureTime" id="departureTime" value="{{old('departureTime')}}" class="form-control">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <h5>Return Time<span class="text-danger">*</span></h5>
+                                                <div class="controls">
+                                                    <input type="text" name="returnTime" id="returnTime" value="{{old('returnTime')}}" class="form-control">
+                                                </div>
+                                            </div>
 
                                                 <div class="form-group">
                                                     <h5>No of People<span class="text-danger">*</span></h5>
@@ -146,7 +166,7 @@
                                             <div class="form-group">
                                                 <h5>Itineraries<span class="text-danger">*</span></h5>
                                                 <div class="controls">
-                                                    <textarea name="itineraries" class="form-control">{{old('itineraries')}} </textarea>
+                                                    <textarea name="itineraries" id="editor1" class="form-control">{{old('itineraries')}} </textarea>
                                                 </div>
                                             </div>
 

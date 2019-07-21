@@ -69,6 +69,12 @@
                                             </div>
 
                                             <div class="form-group">
+                                                <h5>Destination<span class="text-danger">*</span></h5>
+                                                <div class="controls">
+                                                    <input type="text" name="destination" id="destination" class="form-control" value="{{$package->destination}}"> </div>
+                                            </div>
+
+                                            <div class="form-group">
                                                 <h5>Short Description<span class="text-danger">*</span></h5>
                                                 <div class="controls">
                                                     <textarea name="shortDescription" class="form-control">{{$package->shortDescription}} </textarea>
@@ -100,6 +106,20 @@
                                                 <h5>Return Date<span class="text-danger">*</span></h5>
                                                 <div class="controls">
                                                     <input type="text" name="returnDate" id="returnDate" value="{{$package->returnDate}}" class="form-control">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <h5>Departure Time<span class="text-danger">*</span></h5>
+                                                <div class="controls">
+                                                    <input type="text" name="departureTime" id="departureTime" value="{{$package->departureTime}}" class="form-control">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <h5>Return Time<span class="text-danger">*</span></h5>
+                                                <div class="controls">
+                                                    <input type="text" name="returnTime" id="returnTime" value="{{$package->returnTime}}" class="form-control">
                                                 </div>
                                             </div>
 
@@ -157,7 +177,7 @@
                                             <div class="form-group">
                                                 <h5>Itineraries<span class="text-danger">*</span></h5>
                                                 <div class="controls">
-                                                    <textarea name="itineraries" class="form-control">{{$package->itineraries}} </textarea>
+                                                    <textarea name="itineraries" id="editor1" class="form-control">{{$package->itineraries}} </textarea>
                                                 </div>
                                             </div>
 

@@ -39,7 +39,8 @@
                                         <span class="gshape-two"></span>
                                         <span class="gshape-three"></span>
                                     </a></li>
-                                @foreach($categories as $category)
+
+                            @foreach($categories as $category)
                                 <li><a data-filter=".category-{{$category->id}}" href="javascript:void(0)">{{$category->name}}
                                         <span class="gshape-one"></span>
                                         <span class="gshape-two"></span>
@@ -51,21 +52,22 @@
                         </div>
                         <div class="touristpoint-tour touristpoint-tour-grid touristpoint-tour-grid-filter">
                             <ul class="row">
-
+                                @foreach($categories as $category)
                                 @foreach($tour as $t)
                                 <li class="col-md-4 element-item category-{{$category->id}}">
-                                    <figure><a href="tour-detail.html"><img src="{{asset('public/adminpanel/uploads/package/'.$t->image)}}" alt=""><span><i class="fa fa-briefcase"></i>Book Now</span></a>
+                                    <figure><a href="{{route('front.tour_details',$t->id)}}"><img src="{{asset('public/adminpanel/uploads/package/'.$t->image)}}" alt=""><span><i class="fa fa-briefcase"></i>Book Now</span></a>
                                         <span>Featured</span>
                                     </figure>
                                     <div class="touristpoint-tour-grid-text">
-                                        <h5><a href="tour-detail.html">{{$t->title}}</a></h5>
+                                        <h5><a href="{{route('front.tour_details',$t->id)}}">{{$t->title}}</a></h5>
                                         <div class="star-rating"><span class="star-rating-box" style="width:100%"></span></div>
                                         <small>( 03 Review )</small>
                                         <span>Rs.{{$t->price}}</span>
                                         <p>{!! $t->shortDescription !!}</p>
-                                        <a href="tour-detail.html" class="touristpoint-readmore-btn">Read More</a>
+                                        <a href="{{route('front.tour_details',$t->id)}}" class="touristpoint-readmore-btn">Read More</a>
                                     </div>
                                 </li>
+                                    @endforeach
                                     @endforeach
                             </ul>
                         </div>

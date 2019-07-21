@@ -12,7 +12,7 @@
                 <div class="box box-body bg-primary">
                     <div class="flexbox">
                         <div id="spark1"></div>
-                        <span class="font-size-40 font-weight-200">12,568</span>
+                        <span class="font-size-40 font-weight-200">{{$usercount}}</span>
                     </div>
                     <div class="text-right">Users</div>
                 </div>
@@ -22,9 +22,9 @@
                 <div class="box box-body bg-danger">
                     <div class="flexbox">
                         <div id="spark2"></div>
-                        <span class="font-size-40 font-weight-200">8,568</span>
+                        <span class="font-size-40 font-weight-200">{{$packagecount}}</span>
                     </div>
-                    <div class="text-right">Invoices</div>
+                    <div class="text-right">Packages</div>
                 </div>
             </div>
             <!-- /.col -->

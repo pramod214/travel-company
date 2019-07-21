@@ -1,6 +1,6 @@
 <div class="touristpoint-header-menu scrollbox">
     <a href="#" class="header-menu-close"><i class="icon-uniF106"></i></a>
-    <a href="index-2.html" class="touristpoint-navlogo"><img src="{{asset('public/frontend/images/menu-logo.png')}}" alt=""></a>
+    <a href="{{route('front.index')}}" class="touristpoint-navlogo"><img src="" alt="{{$_SLIDER->title}}"></a>
     <div class="touristpoint-nav">
         <ul>
             <li><a href="{{route('front.index')}}">Home</a></li>

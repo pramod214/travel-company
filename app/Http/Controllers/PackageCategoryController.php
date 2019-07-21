@@ -13,7 +13,7 @@ class PackageCategoryController extends Controller
 
     public function store(Request $request){
         $this->validate($request,[
-           'name' => 'required|unique:package_categories,name'
+            'name' => 'required|unique:package_categories,name'
         ]);
         $category = new PackageCategory();
         if($request->isMethod('post')){
@@ -35,3 +35,5 @@ class PackageCategoryController extends Controller
         return redirect()->route('category.index')->with('message','Deleted Successfully');
     }
 }
+
+

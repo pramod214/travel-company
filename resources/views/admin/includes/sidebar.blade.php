@@ -54,6 +54,34 @@
                 </ul>
             </li>
 
+            <li class="treeview">
+                <a href="#">
+                    <i class="iconsmind-Air-Balloon"></i>
+                    <span>Blog</span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{route('blog.create')}}"><i class="iconsmind-Arrow-Through"></i>Create Blog</a></li>
+                    <li><a href="{{route('blog.index')}}"><i class="iconsmind-Arrow-Through"></i>View Blog</a></li>
+                </ul>
+            </li>
+
+            <li class="treeview">
+                <a href="#">
+                    <i class="iconsmind-Air-Balloon"></i>
+                    <span>Slider</span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{route('slider.create')}}"><i class="iconsmind-Arrow-Through"></i>Create Slider</a></li>
+                    <li><a href="{{route('slider.index')}}"><i class="iconsmind-Arrow-Through"></i>View Slider</a></li>
+                </ul>
+            </li>
+
         </ul>
     </section>
 </aside>
