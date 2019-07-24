@@ -9,12 +9,12 @@
 
                     <section class="content-header">
                         <h1>
-                            Package Table
+                            Enquiry Table
                         </h1>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#"><i class="iconsmind-Library"></i></a></li>
                             <li class="breadcrumb-item"><a href="#">Tables</a></li>
-                            <li class="breadcrumb-item active">Package tables</li>
+                            <li class="breadcrumb-item active">Enquiry Tables</li>
                         </ol>
                     </section>
                     @if(session()->has('success_message'))
@@ -24,10 +24,10 @@
                         </div>
                     @endif
 
-                    @if(session()->has('update_message'))
+                    @if(session()->has('message'))
                         <div class="alert alert-info">
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span class="text-info">x</span></button>
-                            {{ session()->get('update_message') }}
+                            {{ session()->get('message') }}
                         </div>
                     @endif
 
@@ -42,11 +42,10 @@
 
                         <div class="row">
                             <div class="col-12">
-                                <a href="{{route('package.create')}}" class="btn btn-primary">CreatePackage</a>
                                 <div class="box box-solid box-primary">
 
                                     <div class="box-header with-border">
-                                        <h4 class="box-title">Package Table</h4>
+                                        <h4 class="box-title">Enquiry Table</h4>
                                     </div>
                                     <!-- /.box-header -->
                                     <div class="box-body">
@@ -56,61 +55,25 @@
                                                     <thead>
                                                     <tr>
                                                         <th>S.N</th>
-                                                        <th>Title</th>
-                                                        <th>Destination</th>
-                                                        <th>Short Description</th>
-                                                        <th>Content</th>
-                                                        <th>Duration</th>
-                                                        <th>Departure Date</th>
-                                                        <th>Departure Time</th>
-                                                        <th>Return Date</th>
-                                                        <th>Return Time</th>
-                                                        <th>No of People</th>
-                                                        <th>Price</th>
-                                                        <th>Discount</th>
-                                                        <th>Location</th>
-                                                        <th>Category Name</th>
-                                                        <th>Itineraries</th>
-                                                        <th>Show In Home</th>
-                                                        <th>Image</th>
-                                                        <th>Action</th>
+                                                        <th>Name</th>
+                                                        <th>Email</th>
+                                                        <th>Message</th>
+                                                        <th>Delete</th>
                                                     </tr>
                                                     </thead>
                                                     <tbody>
-                                                    @foreach($packages as $package)
+                                                    @foreach($enquiries as $enquiry)
                                                         <tr>
                                                             <td>{{$loop -> index+1}}</td>
-                                                            <td>{{$package->title}}</td>
-                                                            <td>{{$package->destination}}</td>
-                                                            <td>{!! substr($package->shortDescription,0,10) !!}</td>
-                                                            <td>{!! substr($package->content,0,10) !!}</td>
-                                                            <td>{{$package->duration}}</td>
-                                                            <td>{{$package->departureDate}}</td>
-                                                            <td>{!! substr($package->departureTime,0,10)!!}</td>
-                                                            <td>{{$package->returnDate}}</td>
-                                                            <td>{{$package->returnTime}}</td>
-                                                            <td>{{$package->noofpeople}}</td>
-                                                            <td>{{$package->price}}</td>
-                                                            <td>{{$package->discount}}</td>
-                                                            <td>{{$package->location}}</td>
-                                                            <td>{{$package->category->name}}</td>
-                                                            <td>{!! substr($package->itineraries,0,10) !!}</td>
-                                                            <td>@if($package->showinhome==0) False @else True @endif</td>
+                                                            <td>{{$enquiry->name}}</td>
+                                                            <td>{{$enquiry->email}}</td>
+                                                            <td>{{$enquiry->message}}</td>
                                                             <td>
-                                                                <img src="{{asset('public/adminpanel/uploads/package/'.$package->image)}}" alt="{{$package->title}}" width="100px">
-                                                            </td>
-                                                            <td>
-                                                                <a href="{{route('package.edit',$package->id)}}" class="btn btn-primary">
-                                                                    <i class="fa fa-edit"></i>
-                                                                </a>
-                                                                <a rel="{{$package->id}}" rel1="package-delete" href="javascript:" class="btn btn-danger deleteRecord">
+                                                                <a rel="{{$enquiry->id}}" rel1="enquiry-delete" href="javascript:" class="btn btn-danger deleteRecord">
                                                                     <i class="fa fa-trash"></i>
                                                                 </a>
-                                                                <a href="{{route('image.add',$package->id)}}" class="btn btn-success">
-                                                                    <i class="fa fa-image"></i>
-                                                                </a>
-
                                                             </td>
+
                                                         </tr>
                                                     @endforeach
                                                     </tbody>

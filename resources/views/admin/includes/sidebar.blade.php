@@ -7,7 +7,7 @@
         <ul class="sidebar-menu" data-widget="tree">
             <li>
                 <a href="{{route('admin.dashboard')}}">
-                    <i class="iconsmind-Dashboard"></i>
+                    <i class="fa fa-dashboard"></i>
                     <span>Dashboard</span>
                     <span class="pull-right-container">
             </span>
@@ -15,7 +15,7 @@
             </li>
             <li class="treeview">
                 <a href="#">
-                    <i class="iconsmind-Air-Balloon"></i>
+                    <i class="fa fa-cog"></i>
                     <span>Site Setting</span>
                     <span class="pull-right-container">
               <i class="fa fa-angle-right pull-right"></i>
@@ -29,7 +29,7 @@
 
             <li class="treeview">
                 <a href="#">
-                    <i class="iconsmind-Air-Balloon"></i>
+                    <i class="fa fa-reorder"></i>
                     <span>Package Category</span>
                     <span class="pull-right-container">
               <i class="fa fa-angle-right pull-right"></i>
@@ -42,7 +42,7 @@
             </li>
             <li class="treeview">
                 <a href="#">
-                    <i class="iconsmind-Air-Balloon"></i>
+                    <i class="fa fa-shopping-bag"></i>
                     <span>Package</span>
                     <span class="pull-right-container">
               <i class="fa fa-angle-right pull-right"></i>
@@ -56,7 +56,7 @@
 
             <li class="treeview">
                 <a href="#">
-                    <i class="iconsmind-Air-Balloon"></i>
+                    <i class="fa fa-rss-square"></i>
                     <span>Blog</span>
                     <span class="pull-right-container">
               <i class="fa fa-angle-right pull-right"></i>
@@ -70,7 +70,7 @@
 
             <li class="treeview">
                 <a href="#">
-                    <i class="iconsmind-Air-Balloon"></i>
+                    <i class="fa fa-image"></i>
                     <span>Slider</span>
                     <span class="pull-right-container">
               <i class="fa fa-angle-right pull-right"></i>
@@ -79,6 +79,32 @@
                 <ul class="treeview-menu">
                     <li><a href="{{route('slider.create')}}"><i class="iconsmind-Arrow-Through"></i>Create Slider</a></li>
                     <li><a href="{{route('slider.index')}}"><i class="iconsmind-Arrow-Through"></i>View Slider</a></li>
+                </ul>
+            </li>
+
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-address-book"></i>
+                    <span>Book</span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{route('book.index')}}"><i class="iconsmind-Arrow-Through"></i>View Slider</a></li>
+                </ul>
+            </li>
+
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-address-book"></i>
+                    <span>Enquiry</span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{route('enquiry.index')}}"><i class="iconsmind-Arrow-Through"></i>View Enquiry</a></li>
                 </ul>
             </li>
 

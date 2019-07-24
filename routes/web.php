@@ -75,3 +75,14 @@ Route::post('/slider/store','SliderController@store')->name('slider.store');
 Route::get('/slider/edit/{id}','SliderController@edit')->name('slider.edit');
 Route::post('/slider/update/{id}','SliderController@update')->name('slider.update');
 Route::get('/admin/slider-delete/{id}','SliderController@delete')->name('slider.delete');
+
+//Book
+Route::get('/book','BookController@index')->name('book.index');
+Route::post('/book/store','BookController@store')->name('book.store');
+Route::get('/approve/{id}','BookController@approve')->name('book.approve');
+Route::get('/admin/book-delete/{id}','BookController@delete')->name('book.delete');
+
+//Enquiry
+Route::get('/enquiry','EnquiryController@index')->name('enquiry.index');
+Route::post('/enquiry/store','EnquiryController@store')->name('enquiry.store');
+Route::get('/admin/enquiry-delete/{id}','EnquiryController@delete')->name('enquiry.delete');

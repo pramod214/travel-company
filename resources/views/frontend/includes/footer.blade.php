@@ -39,7 +39,7 @@
                 <!--// Widget twitter feeds \\-->
                 <aside class="col-md-4 widget widget_contact_info">
                     <div class="touristpoint-footer-title"><h2>Contact Info</h2></div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipis cing elit. Mauris dui ante, commodo eget lacu quis, placerat posuere elit.</p>
+                    <p>You can contact us through the details given below.</p>
                     <ul>
                         <li>
                             <i class="fa fa-envelope-o"></i>

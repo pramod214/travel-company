@@ -168,6 +168,32 @@
                             <div class="widget widget_tabs">
                                 <h2>{{$tourdetails->price}}<span>/ Per Person</span></h2>
                                 <div class="widget-booking-tab">
+
+                                    @if(count($errors)>0)
+                                        <div class="alert alert-danger">
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span class="text-success">x</span></button>
+                                            <ul>
+                                                @foreach($errors->all() as $error)
+                                                    <li>{{$error}}</li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                     @endif
+
+                                        @if(session()->has('error_message'))
+                                            <div class="alert alert-danger">
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span class="text-danger">x</span></button>
+                                                {{ session()->get('error_message') }}
+                                            </div>
+                                    @endif
+
+                                        @if(session()->has('success_message'))
+                                            <div class="alert alert-success">
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span class="text-success">x</span></button>
+                                                {{ session()->get('success_message') }}
+                                            </div>
+                                    @endif
+
                                     <!--// Tabs \\-->
                                     <ul class="nav-tabs" role="tablist">
                                         <li role="presentation" class="active"><a href="#Book-Now" aria-controls="Book-Now" role="tab" data-toggle="tab">Book Now</a></li>
@@ -177,23 +203,40 @@
                                     <div class="tab-content">
                                         <div role="tabpanel" class="tab-pane active" id="Book-Now">
                                             <div class="touristpoint-booking">
-                                                <form>
+                                                <form action="{{route('book.store')}}" method="post">
+                                                    @csrf
                                                     <ul>
                                                         <li>
+                                                            <label>Name:</label>
+                                                            <input type="text" value="{{old('name')}}" placeholder="Name" name="name">
+                                                            <i class="fa fa-id-card"></i>
+                                                        </li>
+                                                        <li>
+                                                            <label>Email:</label>
+                                                            <input type="text" placeholder="Email" value="{{old('email')}}" name="email">
+                                                            <i class="fa fa-envelope"></i>
+                                                        </li>
+                                                        <li>
+                                                            <label>Mobile:</label>
+                                                            <input type="text" placeholder="Mobile Number" value="{{old('mobile')}}" name="mobile">
+                                                            <i class="fa fa-envelope"></i>
+                                                        </li>
+                                                        <li>
                                                             <label>Date:</label>
-                                                            <input type="text" value="-- / -- / ----" onblur="if(this.value == '') { this.value ='-- / -- / ----'; }" onfocus="if(this.value =='-- / -- / ----') { this.value = ''; }">
+                                                            <input type="text" placeholder="-- / -- / ----" name="date" value="{{old('orderdate')}}">
                                                             <i class="fa fa-calendar-o"></i>
                                                         </li>
                                                         <li>
                                                             <label>Adult:</label>
-                                                            <input type="text" value="00" onblur="if(this.value == '') { this.value ='00'; }" onfocus="if(this.value =='00') { this.value = ''; }">
+                                                            <input type="text" placeholder="00" name="noofvisitors" value="{{old('noofvisitors')}}">
                                                             <i class="fa fa-users"></i>
                                                         </li>
                                                         <li>
                                                             <label>Child:</label>
-                                                            <input type="text" value="00" onblur="if(this.value == '') { this.value ='00'; }" onfocus="if(this.value =='00') { this.value = ''; }">
+                                                            <input type="text" placeholder="00" name="noofchildren" value="{{old('noofchildren')}}">
                                                             <i class="fa fa-users"></i>
                                                         </li>
+                                                        <input type="hidden" name="package_id" value="{{$tourdetails->id}}">
                                                         <li><input type="submit" value="Book Tour Now"></li>
                                                     </ul>
                                                 </form>
@@ -201,21 +244,22 @@
                                         </div>
                                         <div role="tabpanel" class="tab-pane" id="Enquiry">
                                             <div class="touristpoint-booking touristpoint-enquiry">
-                                                <form>
+                                                <form method="post" action="{{route('enquiry.store')}}">
+                                                    @csrf
                                                     <ul>
                                                         <li>
-                                                            <label>Date:</label>
-                                                            <input type="text" value="Enter Here" onblur="if(this.value == '') { this.value ='Enter Here'; }" onfocus="if(this.value =='Enter Here') { this.value = ''; }">
+                                                            <label>Name:</label>
+                                                            <input type="text" placeholder="Enter Here" value="{{old('name')}}" name="name">
                                                             <i class="fa fa-user"></i>
                                                         </li>
                                                         <li>
-                                                            <label>Adult:</label>
-                                                            <input type="email" value="Type Your Email" onblur="if(this.value == '') { this.value ='Type Your Email'; }" onfocus="if(this.value =='Type Your Email') { this.value = ''; }">
+                                                            <label>Email:</label>
+                                                            <input type="email" placeholder="Type Your Email" value="{{old('email')}}" name="email">
                                                             <i class="fa fa-envelope"></i>
                                                         </li>
                                                         <li>
-                                                            <label>Child:</label>
-                                                            <textarea name="" placeholder="Type Here"></textarea>
+                                                            <label>Message:</label>
+                                                            <textarea name="message" placeholder="Type Here" name="message">{{old('message')}}</textarea>
                                                             <i class="fa fa-comment"></i>
                                                         </li>
                                                         <li><input type="submit" value="Send Your Enquiry"></li>
