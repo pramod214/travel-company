@@ -22,6 +22,7 @@ Route::get('/6trfdxdestination','FrontEndController@destination')->name('front.d
 Route::get('/contact','FrontEndController@contact')->name('front.contact');
 Route::get('/404','FrontEndController@error')->name('front.404');
 
+
 //BackEnd
 Auth::routes();
 

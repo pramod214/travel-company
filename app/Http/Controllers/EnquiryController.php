@@ -20,6 +20,7 @@ class EnquiryController extends Controller
             $enquiry->email = $data['email'];
             $enquiry->message = $data['message'];
             $enquiry->save();
+            app('App\Http\Controllers\MailController')->sendEnquiryMail($request);
             return redirect()->back()->with('success_message','Thankyou for sending message');
         }
     }

@@ -153,7 +153,7 @@
                                         </figure>
                                         <div class="touristpoint-related-tour-text">
                                             <h5><a href="tour-detail.html">{{$rt->title}}</a></h5>
-                                            <span><del>$50.00</del> $35.00</span>
+                                            <span><del>Rs.{{$rt->price}}</del>Rs.{{$rt->price-($rt->price*$rt->discount/100)}}</span>
                                         </div>
                                     </li>
                                         @endforeach

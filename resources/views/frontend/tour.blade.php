@@ -53,9 +53,9 @@
                         <div class="touristpoint-tour touristpoint-tour-grid touristpoint-tour-grid-filter">
                             <ul class="row">
                                 @foreach($categories as $category)
-                                @foreach($tour as $t)
+                                @foreach($category->getTour as $t)
                                 <li class="col-md-4 element-item category-{{$category->id}}">
-                                    <figure><a href="{{route('front.tour_details',$t->id)}}"><img src="{{asset('public/adminpanel/uploads/package/'.$t->image)}}" alt=""><span><i class="fa fa-briefcase"></i>Book Now</span></a>
+                                    <figure><a href="{{route('front.tour_details',$t->id)}}"><img src="{{asset('public/adminpanel/uploads/package/'.$t->image)}}" alt="" class="img-responsive"><span><i class="fa fa-briefcase"></i>Book Now</span></a>
                                         <span>Featured</span>
                                     </figure>
                                     <div class="touristpoint-tour-grid-text">

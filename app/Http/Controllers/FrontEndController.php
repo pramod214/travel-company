@@ -38,7 +38,7 @@ class FrontEndController extends Controller
         $destination = Package::all();
         $packageImage = PackageImage::where('package_id','=',$id)->get();
         $tourdetails = Package::where(['id'=>$id])->first();
-        $related = Package::with('category')->where(['id'=>$id])->first();
+        $related = Package::where(['id'=>$id])->first();
         $relatedTour = Package::findOrFail($id)->where(['category_id'=>$related->category_id])->get();
 
         return view('frontend.tourdetails',compact('tourdetails','packageImage','relatedTour','destination'));

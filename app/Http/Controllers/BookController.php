@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Book;
+use App\Package;
 use Illuminate\Http\Request;
 
 class BookController extends Controller
@@ -32,6 +33,8 @@ class BookController extends Controller
                 $book->noofchildren = $data['noofchildren'];
                 $book->package_id = $data['package_id'];
                 $book->save();
+                app('App\Http\Controllers\MailController')->sendBookingMail($request);
+                app('App\Http\Controllers\MailController')->sendBookingMailAdmin($request);
                 return redirect()->back()->with('success_message', 'Thankyou for booking');
             }
         }
@@ -44,8 +47,10 @@ class BookController extends Controller
 
     public function approve($id){
         $book = Book::findOrFail($id);
+        $package = Package::findOrFail($book->package->id);
         $book->approve="1";
         $book->save();
+        app('App\Http\Controllers\MailController')->sendApproveMail($book,$package);
         return redirect()->back()->with('success_message','Approved Successfully');
 
     }
